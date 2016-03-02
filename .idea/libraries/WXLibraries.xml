@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="WXLibraries">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../WXLibraries/out/artifacts/WXLibraries_jar/WXLibraries.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
