@@ -7,18 +7,18 @@ import com.wx.crypto.CryptoException;
 import com.wx.notifier.Notifier;
 import com.wx.notifier.NotifierFactory;
 import com.wx.properties.page.ResourcePage;
-import com.wx.util.representables.string.EncodedBytesRepr;
 
 import javax.mail.MessagingException;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 
 /**
  * Created on 27/03/2015
  *
  * @author Raffaele Canale (raffaelecanale@gmail.com)
- * @version 0.1
+ * @version 1.0
  */
 public class GMailNotifierFactory implements NotifierFactory {
 
@@ -52,7 +52,7 @@ public class GMailNotifierFactory implements NotifierFactory {
     private void setProperty(ResourcePage config, String key, String value, Crypter crypter) throws CryptoException {
         if (crypter != null) {
             byte[] data = crypter.encrypt(value.getBytes(StandardCharsets.UTF_8));
-            config.setProperty(key, data, new EncodedBytesRepr());
+            config.setProperty(key, data);
         } else {
             config.setProperty(key, value);
         }
@@ -60,14 +60,14 @@ public class GMailNotifierFactory implements NotifierFactory {
 
     @Override
     public Notifier loadFrom(ResourcePage config, Crypter crypter) throws CryptoException, IOException {
-        if (!config.containsKey(KEY_ENCRYPT_CREDS)) {
+
+        Optional<Boolean> encryptAll = config.getBoolean(KEY_ENCRYPT_CREDS);
+        if (!encryptAll.isPresent()) {
             return null;
         }
 
-        boolean encryptAll = config.getBoolean(KEY_ENCRYPT_CREDS, false);
-
-        String gmailUser = getProperty(config, KEY_USER, encryptAll ? crypter : null);
-        String destination = getProperty(config, KEY_DESTINATION, encryptAll ? crypter : null);
+        String gmailUser = getProperty(config, KEY_USER, encryptAll.get() ? crypter : null);
+        String destination = getProperty(config, KEY_DESTINATION, encryptAll.get() ? crypter : null);
         String gmailPassword = getProperty(config, KEY_PASSWORD, crypter);
 
         return loadFrom(gmailUser, gmailPassword, destination);
@@ -75,18 +75,14 @@ public class GMailNotifierFactory implements NotifierFactory {
 
     private String getProperty(ResourcePage config, String key, Crypter crypter) throws CryptoException, IOException {
         if (crypter != null) {
-            byte[] data = config.getValue(key, new EncodedBytesRepr().nullable());
-            if (data == null) {
-                throw new IOException("Missing key " + key);
-            }
+            byte[] data = config.getBytes(key)
+                    .orElseThrow(() -> new IOException("Missing key " + key));
+
             return new String(crypter.decrypt(data), StandardCharsets.UTF_8);
 
         } else {
-            String value = config.getString(key);
-            if (value == null) {
-                throw new IOException("Missing key " + key);
-            }
-            return value;
+            return config.getString(key)
+                    .orElseThrow(() -> new IOException("Missing key " + key));
         }
     }
 
