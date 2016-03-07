@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9767a156-5995-42b2-a96e-51a7fca62eef" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/NotifierLib.jar" afterPath="$PROJECT_DIR$/build/NotifierLib.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wx/notifier/gmail/GMailNotifierFactory.java" afterPath="$PROJECT_DIR$/src/com/wx/notifier/gmail/GMailNotifierFactory.java" />
     </list>
@@ -31,8 +32,18 @@
       <file leaf-file-name="GMailNotifierFactory.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/wx/notifier/gmail/GMailNotifierFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40677965">
-              <caret line="61" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4042373">
+              <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleMail.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wx/notifier/gmail/GoogleMail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -102,7 +113,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -185,8 +196,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -701,7 +712,8 @@
       <workItem from="1430834960621" duration="3560000" />
       <workItem from="1456926335057" duration="4022000" />
       <workItem from="1457280783248" duration="18000" />
-      <workItem from="1457379791634" duration="607000" />
+      <workItem from="1457379791634" duration="731000" />
+      <workItem from="1457381581215" duration="167000" />
     </task>
     <task id="LOCAL-00001" summary="Updated to more recent WXLibraries (new Map Properties interface)">
       <created>1457380281013</created>
@@ -715,11 +727,17 @@
       <option name="project" value="LOCAL" />
       <updated>1457380355801</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="GMailNotifierFactory now returns GMailNotifiers object (instead of just Notifier)">
+      <created>1457380444452</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1457380444452</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17264000" />
+    <option name="totallyTimeSpent" value="17555000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1435" y="-25" width="1090" height="1950" extended-state="6" />
@@ -799,7 +817,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated to more recent WXLibraries (new Map Properties interface)" />
     <MESSAGE value="Updated gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated gitignore" />
+    <MESSAGE value="GMailNotifierFactory now returns GMailNotifiers object (instead of just Notifier)" />
+    <option name="LAST_COMMIT_MESSAGE" value="GMailNotifierFactory now returns GMailNotifiers object (instead of just Notifier)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -812,6 +831,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/wx/notifier/gmail/GMailNotifierFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wx/notifier/NotifierFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1014,14 +1041,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wx/notifier/gmail/GoogleMail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51519156">
-          <caret line="36" column="91" selection-start-line="36" selection-start-column="91" selection-end-line="36" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wx/notifier/pushbullet/PushbulletNotifier.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0397351">
@@ -1056,10 +1075,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wx/notifier/gmail/GoogleMail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wx/notifier/gmail/GMailNotifierFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40677965">
-          <caret line="61" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4042373">
+          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
           <folding />
         </state>
       </provider>

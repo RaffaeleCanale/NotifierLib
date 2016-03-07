@@ -43,6 +43,10 @@ public class GMailNotifierFactory implements NotifierFactory {
             encryptAll = in.inputYesNo();
         }
 
+        if (gmailUser.endsWith("@gmail.com")) {
+            gmailUser = gmailUser.substring(0, gmailUser.length() - 10);
+        }
+
         setProperty(config, KEY_USER, gmailUser, encryptAll ? crypter : null);
         setProperty(config, KEY_DESTINATION, destination, encryptAll ? crypter : null);
         setProperty(config, KEY_PASSWORD, new String(gmailPassword), crypter);
