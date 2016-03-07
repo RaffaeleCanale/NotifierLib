@@ -59,7 +59,7 @@ public class GMailNotifierFactory implements NotifierFactory {
     }
 
     @Override
-    public Notifier loadFrom(ResourcePage config, Crypter crypter) throws CryptoException, IOException {
+    public GMailNotifier loadFrom(ResourcePage config, Crypter crypter) throws CryptoException, IOException {
 
         Optional<Boolean> encryptAll = config.getBoolean(KEY_ENCRYPT_CREDS);
         if (!encryptAll.isPresent()) {
@@ -86,7 +86,7 @@ public class GMailNotifierFactory implements NotifierFactory {
         }
     }
 
-    public Notifier loadFrom(String gmailUser, String gmailPassword, String destination) {
+    public GMailNotifier loadFrom(String gmailUser, String gmailPassword, String destination) {
         return new GMailNotifier(gmailPassword, gmailUser, destination);
     }
 
