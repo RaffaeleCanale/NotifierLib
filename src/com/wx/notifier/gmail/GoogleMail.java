@@ -33,7 +33,7 @@ public class GoogleMail {
      * @throws MessagingException if the connection is dead or not in the connected state or if the message is not a
      *                            MimeMessage
      */
-    public static void Send(final String username, final String password, String recipientEmail, String title, String message, File... attachments) throws AddressException, MessagingException {
+    public static void Send(final String username, final String password, String recipientEmail, String title, String message, File... attachments) throws MessagingException {
         GoogleMail.Send(username, password, recipientEmail, "", title, message, attachments);
     }
 
@@ -115,7 +115,7 @@ public class GoogleMail {
      * @throws MessagingException if the connection is dead or not in the connected state or if the message is not a
      *                            MimeMessage     *
      */
-    public static void Send(final String username, final String password, String recipientEmail, String ccEmail, String title, String message, File... attachments) throws AddressException, MessagingException {
+    public static void Send(final String username, final String password, String recipientEmail, String ccEmail, String title, String message, File... attachments) throws MessagingException {
         Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
         final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
 
@@ -168,13 +168,12 @@ public class GoogleMail {
 
         // Part two is attachment
         if (attachments != null && attachments.length > 0) {
-            messageBodyPart = new MimeBodyPart();
-
             for (File file : attachments) {
+                BodyPart filePart = new MimeBodyPart();
                 DataSource source = new FileDataSource(file);
-                messageBodyPart.setDataHandler(new DataHandler(source));
-                messageBodyPart.setFileName(file.getName());
-                multipart.addBodyPart(messageBodyPart);
+                filePart.setDataHandler(new DataHandler(source));
+                filePart.setFileName(file.getName());
+                multipart.addBodyPart(filePart);
             }
         }
 
